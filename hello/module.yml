@@ -2,5 +2,5 @@ name: "Fundamentos de Assembly"
 description: |
   Módulo introdutório de Assembly x86-64, usando NASM.
 challenges:
-  - id: hello_world
+  - id: hello-world
     name: "Ola, Mundo em Assembly"
