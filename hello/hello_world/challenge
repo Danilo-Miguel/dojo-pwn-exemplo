@@ -1,0 +1,24 @@
+#!/bin/bash
+ESPERADO="Ola, Mundo!"
+
+if [ ! -f "/home/hacker/mensagem.asm" ]; then
+    echo "Arquivo mensagem.asm não encontrado no seu diretório home!"
+    exit 1
+fi
+
+nasm -f elf64 /home/hacker/mensagem.asm -o /tmp/temp.o 2>/tmp/erro.txt
+if [ $? -ne 0 ]; then
+    echo "Erro ao montar:"
+    cat /tmp/erro.txt
+    exit 1
+fi
+
+ld /tmp/temp.o -o /tmp/temp_exec
+SAIDA=$(/tmp/temp_exec)
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta. Obtido: '$SAIDA'"
+fi
