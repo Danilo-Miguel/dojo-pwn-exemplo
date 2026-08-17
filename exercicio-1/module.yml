@@ -1,0 +1,4 @@
+name: "Fundamentos de Assembly - Exercício 1"
+challenges:
+  - id: hello-world
+    name: "Olá, Mundo em Assembly com NASM e Arquitetura x64"

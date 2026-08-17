@@ -1,0 +1,4 @@
+name: "Fundamentos de Assembly - Exercício 2"
+challenges:
+  - id: hello-manual
+    name: "Monte, Ligue e Execute Manualmente em Assembly x64 com NASM"

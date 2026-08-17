@@ -1,8 +1,0 @@
-name: "Fundamentos de Assembly"
-description: |
-  Módulo introdutório de Assembly x86-64, usando NASM.
-challenges:
-  - id: hello-world
-    name: "Fundamentos de Assembly - Exercício 1"
-  - id: hello-manual
-    name: "Fundamentos de Assembly - Exercício 2"

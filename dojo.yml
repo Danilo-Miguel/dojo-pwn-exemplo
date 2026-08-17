@@ -1,11 +1,12 @@
 id: example
-name: Example Dojo Danilo
+name: "Computer Architecture (Memory Assembly and Debugging Assembly)"
 type: example
 award:
   emoji: 😀
 image: pwncollege/challenge-simple
 modules:
-  - id: hello
+  - id: exercicio-1
+  - id: exercicio-2
   - id: world
   - id: demo
   - id: lectures
