@@ -3,6 +3,6 @@ description: |
   Módulo introdutório de Assembly x86-64, usando NASM.
 challenges:
   - id: hello-world
-    name: "Ola, Mundo em Assembly"
+    name: "Fundamentos de Assembly - Exercício 1"
   - id: hello-manual
-    name: "Monte e Ligue Você Mesmo"
+    name: "Fundamentos de Assembly - Exercício 2"
