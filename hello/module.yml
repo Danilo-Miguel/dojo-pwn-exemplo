@@ -1,6 +1,6 @@
-name: Hello
+name: "Fundamentos de Assembly"
+description: |
+  Módulo introdutório de Assembly x86-64, usando NASM.
 challenges:
-  - id: apple
-    name: Apple
-  - id: banana
-    name: Banana
+  - id: hello_world
+    name: "Ola, Mundo em Assembly"

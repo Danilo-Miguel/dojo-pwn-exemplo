@@ -1,1 +1,1 @@
-The first module in this example dojo.
+Módulo introdutório de Assembly x86-64, usando NASM.
