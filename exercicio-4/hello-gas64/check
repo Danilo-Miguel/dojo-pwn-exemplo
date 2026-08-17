@@ -1,0 +1,30 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ESPERADO="Ola, GAS!"
+
+if [ ! -f "/home/hacker/mensagem4.s" ]; then
+    echo "Arquivo mensagem4.s não encontrado no seu diretório home!"
+    exit 1
+fi
+
+as /home/hacker/mensagem4.s -o /tmp/temp4.o 2>/tmp/erro4.txt
+if [ $? -ne 0 ]; then
+    echo "Erro ao montar:"
+    cat /tmp/erro4.txt
+    exit 1
+fi
+
+ld /tmp/temp4.o -o /tmp/temp4_exec 2>/tmp/erro4_ld.txt
+if [ $? -ne 0 ]; then
+    echo "Erro ao ligar:"
+    cat /tmp/erro4_ld.txt
+    exit 1
+fi
+
+SAIDA=$(/tmp/temp4_exec)
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta. Obtido: '$SAIDA'"
+fi

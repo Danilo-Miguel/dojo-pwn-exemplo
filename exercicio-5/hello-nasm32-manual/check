@@ -1,0 +1,39 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ASM="/home/hacker/mensagem5.asm"
+OBJ="/home/hacker/mensagem5.o"
+EXE="/home/hacker/mensagem5"
+ESPERADO="Montado em 32 bits!"
+
+if [ ! -f "$ASM" ]; then
+    echo "Arquivo mensagem5.asm não encontrado no seu diretório home!"
+    exit 1
+fi
+
+if [ ! -f "$OBJ" ]; then
+    echo "Objeto mensagem5.o não encontrado. Monte com: nasm -f elf32 mensagem5.asm -o mensagem5.o"
+    exit 1
+fi
+
+if [ ! -f "$EXE" ]; then
+    echo "Executavel mensagem5 não encontrado. Ligue com: ld -m elf_i386 mensagem5.o -o mensagem5"
+    exit 1
+fi
+
+if [ ! -x "$EXE" ]; then
+    echo "mensagem5 existe mas não é executável. Rode: chmod +x mensagem5"
+    exit 1
+fi
+
+if ! file "$EXE" | grep -q "ELF 32-bit"; then
+    echo "mensagem5 não é um executável ELF 32-bit válido."
+    exit 1
+fi
+
+SAIDA=$("$EXE")
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta. Obtido: '$SAIDA'"
+fi

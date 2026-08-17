@@ -1,0 +1,4 @@
+name: "Fundamentos de Assembly - Exercício 4"
+challenges:
+  - id: hello-gas64
+    name: "Olá, Mundo em Assembly com GAS e Arquitetura x64"

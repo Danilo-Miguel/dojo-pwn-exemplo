@@ -1,0 +1,4 @@
+name: "Fundamentos de Assembly - Exercício 6"
+challenges:
+  - id: hello-gas64-manual
+    name: "Monte, Ligue e Execute Manualmente em Assembly x64 com GAS"

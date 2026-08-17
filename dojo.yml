@@ -7,6 +7,7 @@ image: pwncollege/challenge-simple
 modules:
   - id: exercicio-1
   - id: exercicio-2
-  - id: world
-  - id: demo
-  - id: lectures
+  - id: exercicio-3
+  - id: exercicio-4
+  - id: exercicio-5
+  - id: exercicio-6

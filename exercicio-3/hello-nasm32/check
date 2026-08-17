@@ -1,0 +1,30 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ESPERADO="Ola, 32 bits!"
+
+if [ ! -f "/home/hacker/mensagem3.asm" ]; then
+    echo "Arquivo mensagem3.asm não encontrado no seu diretório home!"
+    exit 1
+fi
+
+nasm -f elf32 /home/hacker/mensagem3.asm -o /tmp/temp3.o 2>/tmp/erro3.txt
+if [ $? -ne 0 ]; then
+    echo "Erro ao montar:"
+    cat /tmp/erro3.txt
+    exit 1
+fi
+
+ld -m elf_i386 /tmp/temp3.o -o /tmp/temp3_exec 2>/tmp/erro3_ld.txt
+if [ $? -ne 0 ]; then
+    echo "Erro ao ligar:"
+    cat /tmp/erro3_ld.txt
+    exit 1
+fi
+
+SAIDA=$(/tmp/temp3_exec)
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta. Obtido: '$SAIDA'"
+fi

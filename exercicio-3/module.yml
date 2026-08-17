@@ -1,0 +1,4 @@
+name: "Fundamentos de Assembly - Exercício 3"
+challenges:
+  - id: hello-nasm32
+    name: "Olá, Mundo em Assembly com NASM e Arquitetura x86 (32 bits)"

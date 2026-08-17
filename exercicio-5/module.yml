@@ -1,0 +1,4 @@
+name: "Fundamentos de Assembly - Exercício 5"
+challenges:
+  - id: hello-nasm32-manual
+    name: "Monte, Ligue e Execute Manualmente em Assembly x86 (32 bits) com NASM"

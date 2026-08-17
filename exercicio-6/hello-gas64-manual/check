@@ -1,0 +1,39 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ASM="/home/hacker/mensagem6.s"
+OBJ="/home/hacker/mensagem6.o"
+EXE="/home/hacker/mensagem6"
+ESPERADO="Montado com GAS!"
+
+if [ ! -f "$ASM" ]; then
+    echo "Arquivo mensagem6.s não encontrado no seu diretório home!"
+    exit 1
+fi
+
+if [ ! -f "$OBJ" ]; then
+    echo "Objeto mensagem6.o não encontrado. Monte com: as mensagem6.s -o mensagem6.o"
+    exit 1
+fi
+
+if [ ! -f "$EXE" ]; then
+    echo "Executavel mensagem6 não encontrado. Ligue com: ld mensagem6.o -o mensagem6"
+    exit 1
+fi
+
+if [ ! -x "$EXE" ]; then
+    echo "mensagem6 existe mas não é executável. Rode: chmod +x mensagem6"
+    exit 1
+fi
+
+if ! file "$EXE" | grep -q "ELF 64-bit"; then
+    echo "mensagem6 não é um executável ELF 64-bit válido."
+    exit 1
+fi
+
+SAIDA=$("$EXE")
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta. Obtido: '$SAIDA'"
+fi
