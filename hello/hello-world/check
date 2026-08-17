@@ -1,4 +1,4 @@
-#!/usr/bin/exec-suid -- /bin/bash
+#!/usr/bin/exec-suid -- /bin/bash -p
 ESPERADO="Ola, Mundo!"
 
 if [ ! -f "/home/hacker/mensagem.asm" ]; then
