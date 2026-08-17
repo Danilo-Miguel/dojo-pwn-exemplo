@@ -4,3 +4,5 @@ description: |
 challenges:
   - id: hello-world
     name: "Ola, Mundo em Assembly"
+  - id: hello-manual
+    name: "Monte e Ligue Você Mesmo"

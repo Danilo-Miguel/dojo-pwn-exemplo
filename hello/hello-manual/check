@@ -1,0 +1,39 @@
+#!/usr/bin/exec-suid -- /bin/bash -p
+ASM="/home/hacker/mensagem2.asm"
+OBJ="/home/hacker/mensagem2.o"
+EXE="/home/hacker/mensagem2"
+ESPERADO="Montado e Ligado!"
+
+if [ ! -f "$ASM" ]; then
+    echo "Arquivo mensagem2.asm não encontrado no seu diretório home!"
+    exit 1
+fi
+
+if [ ! -f "$OBJ" ]; then
+    echo "Objeto mensagem2.o não encontrado. Monte primeiro com: nasm -f elf64 mensagem2.asm -o mensagem2.o"
+    exit 1
+fi
+
+if [ ! -f "$EXE" ]; then
+    echo "Executavel mensagem2 não encontrado. Ligue com: ld mensagem2.o -o mensagem2"
+    exit 1
+fi
+
+if [ ! -x "$EXE" ]; then
+    echo "mensagem2 existe mas não é executável. Rode: chmod +x mensagem2"
+    exit 1
+fi
+
+if ! file "$EXE" | grep -q "ELF 64-bit"; then
+    echo "mensagem2 não é um executável ELF 64-bit válido."
+    exit 1
+fi
+
+SAIDA=$("$EXE")
+
+if [ "$SAIDA" == "$ESPERADO" ]; then
+    echo "Correto! Flag:"
+    cat /flag
+else
+    echo "Saída incorreta. Obtido: '$SAIDA'"
+fi
